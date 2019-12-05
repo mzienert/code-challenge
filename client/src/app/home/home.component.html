@@ -1,0 +1,52 @@
+<div fxLayout.gt-md="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px" class="container">
+    <div fxFlex.gt-md="calc(70% - 20px)">
+        <div fxLayout="row wrap"  fxLayoutGap="20px grid">
+            <div fxFlex.gt-md="calc(25% - 20px)" fxFlex.lt-md="calc(50% - 20px)" *ngFor="let product of products" class="product">
+                <mat-card>
+                    <mat-card-title>{{product.name}}</mat-card-title>
+                    <mat-card-actions>
+                        <button mat-button (click)="addToCart(product)"><mat-icon>add_shopping_cart</mat-icon></button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+    <div fxFlex.gt-md="calc(30% - 20px)">
+        <mat-progress-bar mode="indeterminate" *ngIf="loadingCart"></mat-progress-bar>
+        <mat-card>
+            <h2 class="mat-h2">Shopping Cart</h2>
+            <div *ngIf="cartItems.length; else noItems">
+                <div fxLayout="row" *ngFor="let cartItem of cartItems">
+                    <div fxFlex.gt-md="50">
+                        <h4 class="mat-h4">{{cartItem.name}}</h4>
+                    </div>
+                    <div fxFlex.gt-md="35">
+                        <div fxLayout="row">
+                            <div fxFlex="40">
+                                <button mat-flat-button (click)="removeQty(cartItem.id, cartItem.qty)">-</button>
+                            </div>
+                            <div fxFlex="20" class="qty">
+                                <h4 class="mat-h4">{{cartItem.qty}}</h4>
+                            </div>
+                            <div fxFlex="40">
+                                <button mat-flat-button (click)="addQty(cartItem.id, cartItem.qty)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex.gt-md="15">
+                        <button mat-flat-button (click)="removeCart(cartItem.id)"><mat-icon>remove_shopping_cart</mat-icon></button>
+                    </div>
+                </div>
+            </div>
+            <ng-template #noItems><h4 class="mat-h4">There are no items in your cart</h4></ng-template>
+            <div fxLayout="row" *ngIf="cartItems.length">
+                <div fxFlex="50">
+                    <h4 class="mat-h4">Total Products: {{this.itemCount}}</h4>
+                </div>
+                <div fxFlex="50">
+                    <h4 class="mat-h4">Total Qty: {{this.qtyCount}}</h4>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

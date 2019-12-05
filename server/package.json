@@ -1,0 +1,28 @@
+{
+  "name": "aic",
+  "version": "1.0.0",
+  "description": "Server for Artifact Uprising code challenge",
+  "main": "server.js",
+  "scripts": {
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "jest --watchAll",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Matthew Zienert",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^3.0.0",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "koa2-mysql-wrapper": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-strongloop": "^2.1.0",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
+  }
+}

@@ -6,7 +6,7 @@
 
 3. From repo root run, $ docker-compose up
 
-4. Wait for build to respond, 'angular live development server is listening'
+4. Wait for build to respond, 'angular live development server is listening...'
 
 5. enter localhost:4200 in browser
 

@@ -11,6 +11,8 @@
 5. enter localhost:4200 in browser
 
 Notes:
-Client built with Angular 8.
+Client built with Angular 8
+
 Server built with Node 12 / KOA 2
+
 DB is AWS RDS MySQL

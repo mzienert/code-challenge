@@ -1,6 +1,4 @@
 # code-challenge
-Clone repo
-
 <strong>To start with Docker-Compose</strong>
 1. CD into repo
 
